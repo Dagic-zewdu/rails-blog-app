@@ -5,7 +5,6 @@ AllCops:
     - 'Rakefile'
     - 'node_modules/**/*'
     - 'bin/**/*'
-
   DisplayCopNames: true
 
 Layout/LineLength:
