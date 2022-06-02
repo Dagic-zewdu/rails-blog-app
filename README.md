@@ -26,6 +26,7 @@ Rspec
 
 - To run tests first install Rspec with `gem install rspec`
 - inside the repo's root folder run `rspec spec `to see the tests in action
+- to run tests `bundle exec rspec`.
 
 ## Authors
 
