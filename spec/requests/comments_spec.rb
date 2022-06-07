@@ -12,9 +12,9 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe '/users', type: :request do
+RSpec.describe '/comments', type: :request do
   # This should return the minimal set of attributes required to create a valid
-  # User. As you add validations to User, be sure to
+  # Comment. As you add validations to Comment, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
     skip('Add a hash of attributes valid for your model')
@@ -26,58 +26,58 @@ RSpec.describe '/users', type: :request do
 
   describe 'GET /index' do
     it 'renders a successful response' do
-      User.create! valid_attributes
-      get users_url
+      Comment.create! valid_attributes
+      get comments_url
       expect(response).to be_successful
     end
   end
 
   describe 'GET /show' do
     it 'renders a successful response' do
-      user = User.create! valid_attributes
-      get user_url(user)
+      comment = Comment.create! valid_attributes
+      get comment_url(comment)
       expect(response).to be_successful
     end
   end
 
   describe 'GET /new' do
     it 'renders a successful response' do
-      get new_user_url
+      get new_comment_url
       expect(response).to be_successful
     end
   end
 
   describe 'GET /edit' do
     it 'renders a successful response' do
-      user = User.create! valid_attributes
-      get edit_user_url(user)
+      comment = Comment.create! valid_attributes
+      get edit_comment_url(comment)
       expect(response).to be_successful
     end
   end
 
   describe 'POST /create' do
     context 'with valid parameters' do
-      it 'creates a new User' do
+      it 'creates a new Comment' do
         expect do
-          post users_url, params: { user: valid_attributes }
-        end.to change(User, :count).by(1)
+          post comments_url, params: { comment: valid_attributes }
+        end.to change(Comment, :count).by(1)
       end
 
-      it 'redirects to the created user' do
-        post users_url, params: { user: valid_attributes }
-        expect(response).to redirect_to(user_url(User.last))
+      it 'redirects to the created comment' do
+        post comments_url, params: { comment: valid_attributes }
+        expect(response).to redirect_to(comment_url(Comment.last))
       end
     end
 
     context 'with invalid parameters' do
-      it 'does not create a new User' do
+      it 'does not create a new Comment' do
         expect do
-          post users_url, params: { user: invalid_attributes }
-        end.to change(User, :count).by(0)
+          post comments_url, params: { comment: invalid_attributes }
+        end.to change(Comment, :count).by(0)
       end
 
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
-        post users_url, params: { user: invalid_attributes }
+        post comments_url, params: { comment: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -89,42 +89,42 @@ RSpec.describe '/users', type: :request do
         skip('Add a hash of attributes valid for your model')
       end
 
-      it 'updates the requested user' do
-        user = User.create! valid_attributes
-        patch user_url(user), params: { user: new_attributes }
-        user.reload
+      it 'updates the requested comment' do
+        comment = Comment.create! valid_attributes
+        patch comment_url(comment), params: { comment: new_attributes }
+        comment.reload
         skip('Add assertions for updated state')
       end
 
-      it 'redirects to the user' do
-        user = User.create! valid_attributes
-        patch user_url(user), params: { user: new_attributes }
-        user.reload
-        expect(response).to redirect_to(user_url(user))
+      it 'redirects to the comment' do
+        comment = Comment.create! valid_attributes
+        patch comment_url(comment), params: { comment: new_attributes }
+        comment.reload
+        expect(response).to redirect_to(comment_url(comment))
       end
     end
 
     context 'with invalid parameters' do
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
-        user = User.create! valid_attributes
-        patch user_url(user), params: { user: invalid_attributes }
+        comment = Comment.create! valid_attributes
+        patch comment_url(comment), params: { comment: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
 
   describe 'DELETE /destroy' do
-    it 'destroys the requested user' do
-      user = User.create! valid_attributes
+    it 'destroys the requested comment' do
+      comment = Comment.create! valid_attributes
       expect do
-        delete user_url(user)
-      end.to change(User, :count).by(-1)
+        delete comment_url(comment)
+      end.to change(Comment, :count).by(-1)
     end
 
-    it 'redirects to the users list' do
-      user = User.create! valid_attributes
-      delete user_url(user)
-      expect(response).to redirect_to(users_url)
+    it 'redirects to the comments list' do
+      comment = Comment.create! valid_attributes
+      delete comment_url(comment)
+      expect(response).to redirect_to(comments_url)
     end
   end
 end

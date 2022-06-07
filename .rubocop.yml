@@ -5,6 +5,8 @@ AllCops:
     - 'Rakefile'
     - 'node_modules/**/*'
     - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'spec/views/**/*'
   DisplayCopNames: true
 
 Layout/LineLength:
