@@ -1,2 +1,12 @@
-<h1>Posts</h1>
-<p>Shows info for a specific post</p>
+<div>
+  <%= render partial: "post_details" , locals: { post: @post } %>
+</div>
+<div class="posts">
+  <ul>
+    <% @post.comments.each do |comment| %>
+      <li>
+        <%= render partial: "shared/comment" , locals: { comment: comment } %>
+      </li>
+      <% end %>
+  </ul>
+</div>

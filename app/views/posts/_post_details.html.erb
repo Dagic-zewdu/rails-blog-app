@@ -1,0 +1,13 @@
+<div class="post">
+  <div class="comment-header">
+    <h2>
+      Post by <%= post.author.name %>
+    </h2>
+    <small>
+      <span>Comment: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></span>
+    </small>
+  </div>
+  <p>
+    <%= post.text %>
+  </p>
+</div>
