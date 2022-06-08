@@ -1,7 +1,6 @@
-<div class="container">
-<div class="card">
+<div class="card mt-4 p-4">
  <h2>
-    <span>Post #<%= index %></span>
+    <span>Post #<%= index+1 %></span>
     <span>
       <%= post.title %>
     </span>
@@ -9,8 +8,9 @@
    <p>
     <%= post.text %>
   </p>
+  <div class="d-flex justify-content-end">
   <small>
-    <span>Comment: <%= pos+-t.comments_counter %>, Likes: <%= post.likes_counter %></span>
+    <span>Comment: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></span>
   </small>
-</div>
+  </div>
 </div>
