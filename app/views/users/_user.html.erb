@@ -1,22 +1,23 @@
-<div id="<%= dom_id user %>">
-  <p>
-    <strong>Name:</strong>
-    <%= user.name %>
-  </p>
-
-  <p>
-    <strong>Bio:</strong>
-    <%= user.bio %>
-  </p>
-
-  <p>
-    <strong>Photo:</strong>
-    <%= user.photo %>
-  </p>
-
-  <p>
-    <strong>Posts counter:</strong>
-    <%= user.posts_counter %>
-  </p>
-
+<%= link_to user do %>
+<div class="container mt-4">
+<div class="card" id="users">
+  <div class="row">
+    <div class="col-lg-4">
+    <img src="<%= asset_path(user.photo) %>" alt="user photo" class="img-fluid post-img" />
+    </div>
+    <div class="col-lg-8">
+      <h2>
+      <%= user.name %>
+    </h2>
+    <div class="d-flex w-100 justify-content-end p-3">
+    <small>
+      Number of posts: <%= user.posts_counter %>
+    </small>
+    </div>
+    
+    </div>
+  </div>
 </div>
+</div>
+</div>
+<% end %>

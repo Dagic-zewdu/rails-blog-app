@@ -1,0 +1,16 @@
+<div class="card mt-4 p-4">
+ <h2>
+    <span>Post #<%= index+1 %></span>
+    <span>
+      <%= post.title %>
+    </span>
+  </h2>
+   <p>
+    <%= post.text %>
+  </p>
+  <div class="d-flex justify-content-end">
+  <small>
+    <span>Comment: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></span>
+  </small>
+  </div>
+</div>
