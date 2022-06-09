@@ -73,4 +73,8 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :bio, :photo, :posts_counter)
   end
+
+  def link(_user)
+    "step#{progress}_path(user.id)"
+  end
 end

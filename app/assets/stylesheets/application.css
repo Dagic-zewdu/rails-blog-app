@@ -21,7 +21,12 @@ ul {
 }
 
 .post-img {
-  height: 140px;
+  height: 150px;
   width: 100%;
   object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+  color: #111;
 }

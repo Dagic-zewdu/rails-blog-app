@@ -3,7 +3,7 @@
 </div>
 <div class="posts">
   <ul>
-    <% @post.comments.each do |comment| %>
+    <% @user_most_recent_three_posts.comments.each do |comment| %>
       <li>
         <%= render partial: "shared/comment" , locals: { comment: comment } %>
       </li>
