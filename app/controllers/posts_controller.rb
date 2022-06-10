@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     id = params[:id]
     @post = Post.find(id)
   end
+
   def create
     post = params[:post]
     user = User.find(params[:user_id])
@@ -26,6 +27,7 @@ class PostsController < ApplicationController
       render :new
     end
   end
+
   def new
     @post = Post.new
     render :new

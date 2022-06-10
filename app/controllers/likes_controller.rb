@@ -19,7 +19,7 @@ class LikesController < ApplicationController
 
   # POST /likes or /likes.json
   def create
-      @post = Post.includes(:user).find(params[:post_id])
+    @post = Post.includes(:user).find(params[:post_id])
     @post_author = @post.user
 
     @the_user = current_user
@@ -50,7 +50,7 @@ class LikesController < ApplicationController
   end
 
   # DELETE /likes/1 or /likes/1.json
- def destroy
+  def destroy
     @liked_posts_by_this_user.destroy_all
     flash[:notice] = 'You removed your like from this post.'
     redirect_back_or_to user_post_url(@post_author, @post)

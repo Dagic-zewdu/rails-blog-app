@@ -18,21 +18,20 @@ class CommentsController < ApplicationController
   def edit; end
 
   # POST /comments or /comments.json
-    def create
+  def create
     user = User.find(params[:user_id])
     post = Post.find(params[:post_id])
-  puts user,post.comments_counter
-  comment = params[:comment]
+    puts user, post.comments_counter
+    comment = params[:comment]
     new_comment = Comment.new(comment.permit(:text))
-    new_comment.author_id=user.id
-    new_comment.post_id=post.id
+    new_comment.author_id = user.id
+    new_comment.post_id = post.id
     if new_comment.save
       redirect_to user_post_url(user, post)
     else
       render :new
     end
   end
-
 
   # PATCH/PUT /comments/1 or /comments/1.json
   def update
