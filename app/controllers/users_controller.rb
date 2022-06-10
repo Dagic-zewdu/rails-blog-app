@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
+    @recent_posts = @user.most_recent_three_posts
   end
 
   # GET /users/new
