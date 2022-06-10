@@ -5,14 +5,13 @@
       Post by <%= post.user.name %>
     </h2>
     <small>
-      <span>
-      <%= render partial: "likes/form", locals: { like: Like.new, user: @post.user, post: @post } %>
-      Comments: <%= post.comments_counter %></span>
+      <span>Comment: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></span>
     </small>
   </div>
   <p>
     <%= post.text %>
   </p>
+   <%= render partial: "likes/form", locals: { like: Like.new, user: post.user, post: post } %>
 </div>
 <div class="comments-wrapper">
   <h3>Comments:</h3>
