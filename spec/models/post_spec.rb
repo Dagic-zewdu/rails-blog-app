@@ -76,9 +76,9 @@ RSpec.describe Post, type: :model do
     end
   end
 
-  context 'post.recent_five_comments' do
+  context 'post.most_recent_five_comments' do
     it 'returns empty list if there is no comments' do
-      expect(the_post.recent_five_comments).to eq []
+      expect(the_post.most_recent_five_comments).to eq []
     end
 
     it 'returns recent five comments in right order' do
@@ -90,7 +90,7 @@ RSpec.describe Post, type: :model do
       comment6.save!
 
       the_post.reload
-      actual_comments = the_post.recent_five_comments.pluck(:text)
+      actual_comments = the_post.most_recent_five_comments.pluck(:text)
       expected_comments = [
         comment6.text,
         comment5.text,

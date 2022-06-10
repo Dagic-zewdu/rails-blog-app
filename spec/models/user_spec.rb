@@ -44,7 +44,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context 'recent_3_posts method' do
+  context 'most_recent_three_posts method' do
     let(:the_author) { User.create!(name: 'Omid', photo: 'https://via.placeholder.com/150', bio: 'bio!', posts_counter: 0) }
     let(:post1) { Post.new(title: 'post 1', user: the_author, text: 't', comments_counter: 0, likes_counter: 0) }
     let(:post2) { Post.new(title: 'post 2', user: the_author, text: 't', comments_counter: 0, likes_counter: 0) }
@@ -52,13 +52,13 @@ RSpec.describe User, type: :model do
     let(:post4) { Post.new(title: 'post 4', user: the_author, text: 't', comments_counter: 0, likes_counter: 0) }
 
     it 'returns nothing without any posts' do
-      posts_count = the_author.recent_3_posts.count
+      posts_count = the_author.most_recent_three_posts.count
       expect(posts_count).to be 0
     end
 
     it 'returns 1 for one post' do
       post1.save!
-      posts_count = the_author.recent_3_posts.count
+      posts_count = the_author.most_recent_three_posts.count
       expect(posts_count).to be 1
     end
 
@@ -67,7 +67,7 @@ RSpec.describe User, type: :model do
       post3.save!
       post4.save!
 
-      posts = the_author.recent_3_posts
+      posts = the_author.most_recent_three_posts
       posts_count = posts.count
       titles = posts.pluck(:title)
 
