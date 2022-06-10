@@ -19,17 +19,21 @@ class LikesController < ApplicationController
 
   # POST /likes or /likes.json
   def create
-    @like = Like.new(like_params)
+      @post = Post.includes(:user).find(params[:post_id])
+    @post_author = @post.user
 
-    respond_to do |format|
-      if @like.save
-        format.html { redirect_to like_url(@like), notice: 'Like was successfully created.' }
-        format.json { render :show, status: :created, location: @like }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @like.errors, status: :unprocessable_entity }
-      end
-    end
+    @the_user = current_user
+
+    @liked_posts_by_this_user = Like.where(user: @the_user, post: @post)
+
+    destroy && return if @liked_posts_by_this_user.present?
+
+    new_like = Like.create(user: @the_user, post: @post)
+
+    return unless new_like.save
+
+    flash[:notice] = 'You liked this post.'
+    redirect_back_or_to user_post_url(@post_author, @post)
   end
 
   # PATCH/PUT /likes/1 or /likes/1.json
@@ -46,13 +50,10 @@ class LikesController < ApplicationController
   end
 
   # DELETE /likes/1 or /likes/1.json
-  def destroy
-    @like.destroy
-
-    respond_to do |format|
-      format.html { redirect_to likes_url, notice: 'Like was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+ def destroy
+    @liked_posts_by_this_user.destroy_all
+    flash[:notice] = 'You removed your like from this post.'
+    redirect_back_or_to user_post_url(@post_author, @post)
   end
 
   private

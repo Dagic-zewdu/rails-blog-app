@@ -30,3 +30,10 @@ a {
   text-decoration: none;
   color: #111;
 }
+
+.like-button {
+  border: 0;
+  background: none;
+  font-size: inherit;
+  cursor: pointer;
+}
