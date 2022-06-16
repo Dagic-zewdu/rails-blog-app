@@ -1,0 +1,41 @@
+<div class="container d-flex align-items-center justify-content-center" style="min-height:100vh">
+<div class="card p-4 w-50">
+
+<h2 class="text-center">Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field mt-4">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",style:"width:100%" %>
+  </div>
+
+  <div class="field mt-4">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password",style:"width:100%" %>
+  </div>
+
+  <div class="field mt-4">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",style:"width:100%" %>
+  </div>
+
+  <div class="field mt-4">
+    <%= f.label :name %><br />
+    <%= f.text_field :name,style:"width:100%" %>
+  </div>
+
+  <div class="actions mt-4 mb-4">
+    <%= f.submit "Sign up" ,style:"width:100%" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+<%= render "devise/shared/error_messages" %>
+
+</div>
+<div>
