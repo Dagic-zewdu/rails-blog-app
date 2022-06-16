@@ -36,6 +36,12 @@ Rspec
 - LinkedIn: [LinkedIn](https://www.linkedin.com/dagic-zewdu/)
 - Twitter: [Twitter](https://twitter.com/dagic4)
 
+👤 **Muneeb Ul Rehman**
+
+- GitHub: [@Muneeb](https://github.com/muneebulrehman)
+- Twitter: [@NeatCoder\_](https://twitter.com/NeatCoder_)
+- LinkedIn: [Muneeb](https://www.linkedin.com/in/muneeb-ul-rehman-33903b159/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
