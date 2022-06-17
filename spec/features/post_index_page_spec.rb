@@ -12,7 +12,7 @@ describe 'Post Index' do
   end
 
   it 'shows the user\'s profile picture' do
-    expect(page).to have_css ""
+    expect(page).to have_css ''
   end
 
   it 'shows username' do

@@ -1,5 +1,6 @@
 def create_and_activate_user(name)
-  user = User.create!(name:, email: "#{name}@example.com", password: '123456', bio: "Bio of #{name}",photo: "#{name}.jpg")
+  user = User.create!(name:, email: "#{name}@example.com", password: '123456', bio: "Bio of #{name}",
+                      photo: "#{name}.jpg")
   user.save
   user.confirm
   user

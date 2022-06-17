@@ -8,6 +8,7 @@ AllCops:
     - 'db/schema.rb'
     - 'spec/views/**/*'
     - 'config/initializers/**'
+    - 'spec/*/**'
   DisplayCopNames: true
 
 Layout/LineLength:
